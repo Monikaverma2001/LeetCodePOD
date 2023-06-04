@@ -1,0 +1,30 @@
+class Solution {
+    private static void dfs(int index,int[][] isConnected,boolean[] vis)
+    {
+        vis[index]=true;
+        for(int i=0;i<isConnected.length;i++)
+        {
+            if(!vis[i] && isConnected[index][i]==1)
+            {
+                dfs(i,isConnected,vis);
+            }
+        }
+    }
+    public int findCircleNum(int[][] isConnected) {
+        int n=isConnected.length;
+        boolean vis[]=new boolean[n];
+        
+        int province=0;
+        for(int i=0;i<isConnected.length;i++)
+        {
+            System.out.println(i);
+            if(!vis[i])
+            {
+                System.out.println("visisted "+i);
+                province++;
+                dfs(i,isConnected,vis);
+            }
+        }
+        return province;
+    }
+}
