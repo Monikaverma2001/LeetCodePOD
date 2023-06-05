@@ -1,0 +1,31 @@
+1232. Check If It Is a Straight Line || java solution
+verma2001
+Algorithm I
+0
+in 2 hours
+Java
+Intuition JAVA BEST SOLUTION
+Approach Slope of points
+Complexity
+Time complexity:O(N)
+Space complexity:O(1)
+Code
+class Solution {
+    public boolean checkStraightLine(int[][] coodinates) {
+        //Straight line equation
+        //x+y=0
+        int x=coodinates[0][0]-coodinates[1][0];
+        int y=coodinates[0][1]-coodinates[1][1];
+        
+        for(int i=1;i<coodinates.length;i++)
+        {
+            int x1=coodinates[i-1][0]-coodinates[i][0];
+            int y1=coodinates[i-1][1]-coodinates[i][1];
+            int m1=x1*y;
+            int m=x*y1;
+            if(m1!=m)
+                return false;
+        }
+        return true;
+    }
+}
