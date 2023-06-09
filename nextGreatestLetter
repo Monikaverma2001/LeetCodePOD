@@ -1,0 +1,27 @@
+JAVA EASY SOLUTION
+verma2001
+Algorithm I
+1
+a few seconds ago
+Java
+Complexity
+Time complexity:o(n)
+Space complexity:o(1)
+Code
+class Solution {
+    public char nextGreatestLetter(char[] letters, char target) {
+        char ans='z'+1;
+        int index=0;
+        for(int i=0;i<letters.length;i++)
+        {
+            if(letters[i]>target && letters[i]<ans)
+            {
+                ans=letters[i];
+                index=1;
+            }
+        }
+        if(target=='z')
+            return letters[0];
+        return index==0?letters[0]:ans;
+    }
+}
