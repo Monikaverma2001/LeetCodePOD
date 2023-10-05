@@ -1,0 +1,28 @@
+class Solution
+{
+    long substrCount (String S, int k) {
+        // your code here
+        
+        int res=0;
+        int dis=0;
+        int fre[]=new int[26];
+        for(int i=0;i<S.length();i++)
+        {
+            Arrays.fill(fre,0);
+            dis=0;
+            for(int j=i;j<S.length();j++)
+            {
+                if(fre[S.charAt(j)-'a']==0)
+                {
+                    dis++;
+                }
+                ++fre[S.charAt(j)-'a'];
+                if(dis==k)
+                {
+                    res++;
+                }
+            }
+        }
+        return res;
+    }
+}
